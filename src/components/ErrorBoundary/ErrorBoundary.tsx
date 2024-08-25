@@ -28,9 +28,9 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
       return (
         <div className={styles.errorBoundary}>
           <div className={styles.errorBoundaryContent}>
-            <h1>Произошла ошибка</h1>
-            <p>Что-то пошло не так. Пожалуйста, попробуйте обновить страницу или вернитесь на главную.</p>
-            <button onClick={() => window.location.reload()}>Обновить страницу</button>
+            <h1>An error has occurred</h1>
+            <p>Something went wrong. Please try refreshing the page or go back to the homepage.</p>
+            <button onClick={() => window.location.reload()}>Refresh Page</button>
           </div>
         </div>
       );
