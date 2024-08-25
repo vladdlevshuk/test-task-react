@@ -1,12 +1,10 @@
 import React from 'react';
-import styles from './Spinner.module.css';
+import styles from './Spinner.module.scss';
 
-const Spinner: React.FC = () => {
+export const Spinner: React.FC = () => {
   return (
     <div className={styles['spinner-overlay']}>
       <div className={styles.spinner}></div>
     </div>
   );
 };
-
-export default Spinner;

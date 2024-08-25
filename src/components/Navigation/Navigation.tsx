@@ -1,24 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import styles from './Navigation.module.css';
+import { logoutUser } from '../../store/userSlice';
+import styles from './Navigation.module.scss';
 
-const Navigation: React.FC = () => {
+export const Navigation: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoggedIn = useSelector((state: RootState) => state.user.isLoggedIn);
 
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/');
+  };
+
   return (
-    <header className={styles.header}>
+    <nav className={styles.navigation}>
       <div className={styles.container}>
         <Link to="/" className={styles.title}>Best Application</Link>
         {isLoggedIn ? (
-          <Link to="/logout" className={styles.button}>Log Out</Link>
+          <button onClick={handleLogout} className={styles.button}>Log Out</button>
         ) : (
           <Link to="/login" className={styles.button}>Sign In</Link>
         )}
       </div>
-    </header>
+    </nav>
   );
 };
-
-export default Navigation;

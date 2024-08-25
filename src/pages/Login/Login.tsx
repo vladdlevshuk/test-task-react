@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../store/userSlice';
 import { useFetchUserQuery } from '../../api/userApiSlice';
 import { useNavigate } from 'react-router-dom';
-import styles from './LoginPage.module.css';
-import { extractErrorMessage } from '../../utils/errorUtils';
-import { RootState } from '../../types/RootState';
+import styles from './Login.module.scss';
+import { extractErrorMessage } from '../../utils/error';
+import { RootState } from '../../types';
 
-const LoginPage: React.FC = () => {
+export const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const dispatch = useDispatch();
@@ -57,5 +57,3 @@ const LoginPage: React.FC = () => {
     </div>
   );
 };
-
-export default LoginPage;

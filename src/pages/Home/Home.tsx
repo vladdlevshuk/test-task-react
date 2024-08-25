@@ -1,11 +1,11 @@
 import React from 'react';
-import { useGetPostsQuery } from '../../api/apiSlice';
-import styles from './HomePage.module.css';
-import { Post } from '../../types/Post';
-import { extractErrorMessage } from '../../utils/errorUtils';
-import Spinner from '../../components/Spinner/Spinner';
+import { useGetPostsQuery } from '../../api/postsApiSlice';
+import { extractErrorMessage } from '../../utils/error';
+import { Post } from '../../types';
+import { Spinner } from '../../components/Spinner/Spinner';
+import styles from './Home.module.scss';
 
-const HomePage: React.FC = () => {
+export const Home: React.FC = () => {
   const { data: posts = [], error, isLoading } = useGetPostsQuery({});
 
   if (isLoading) return <Spinner />;
@@ -26,5 +26,3 @@ const HomePage: React.FC = () => {
     </div>
   );
 };
-
-export default HomePage;
