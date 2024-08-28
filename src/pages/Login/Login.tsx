@@ -19,10 +19,12 @@ export const Login: React.FC = () => {
     skip: !username,
   });
 
+  const isButtonDisabled = isFetching || !!error;
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (isFetching) return;
+    if (isButtonDisabled) return;
 
     if (data && data.length > 0) {
       dispatch(setUser(data[0]));
@@ -35,20 +37,26 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.title}>{isLoggedIn ? 'You are already logged in' : 'Sign In'}</div>
+    <div className={styles['login__container']}>
+      <form className={styles['login__form']} onSubmit={handleSubmit}>
+        <div className={styles['login__title']}>
+          {isLoggedIn ? 'You are already logged in' : 'Sign In'}
+        </div>
         {!isLoggedIn && (
           <>
             <input
               type="text"
-              className={styles.input}
+              className={styles['login__input']}
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
-            {errorMessage && <div className={styles.errorMessage}>{errorMessage}</div>}
-            <button type="submit" className={styles.button} disabled={isFetching}>
+            {errorMessage && <div className={styles['login__error-message']}>{errorMessage}</div>}
+            <button
+              type="submit"
+              className={styles['login__button']}
+              disabled={isButtonDisabled}
+            >
               {isFetching ? 'Loading...' : 'Send'}
             </button>
           </>

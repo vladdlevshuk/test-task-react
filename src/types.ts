@@ -12,5 +12,3 @@ export interface UserState {
 export interface RootState {
   user: UserState;
 }
-
-export {};

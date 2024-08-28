@@ -3,8 +3,8 @@ import styles from './Spinner.module.scss';
 
 export const Spinner: React.FC = () => {
   return (
-    <div className={styles['spinner-overlay']}>
-      <div className={styles.spinner}></div>
+    <div className={styles['spinner__overlay']}>
+      <div className={styles['spinner__element']}></div>
     </div>
   );
 };

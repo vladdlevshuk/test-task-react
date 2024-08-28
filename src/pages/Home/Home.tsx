@@ -16,11 +16,11 @@ export const Home: React.FC = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles['home__container']}>
       {posts.map((post: Post) => (
-        <div key={post.id} className={styles.card}>
-          <div className={styles['card-title']}><strong>{post.title}</strong></div>
-          <div className={styles['card-description']}>{post.body}</div>
+        <div key={post.id} className={styles['home__card']}>
+          <div className={styles['home__card-title']}><strong>{post.title}</strong></div>
+          <div className={styles['home__card-description']}>{post.body}</div>
         </div>
       ))}
     </div>

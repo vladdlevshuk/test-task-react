@@ -17,12 +17,12 @@ export const Navigation: React.FC = () => {
 
   return (
     <nav className={styles.navigation}>
-      <div className={styles.container}>
-        <Link to="/" className={styles.title}>Best Application</Link>
+      <div className={styles['navigation__container']}>
+        <Link to="/" className={styles['navigation__title']}>Best Application</Link>
         {isLoggedIn ? (
-          <button onClick={handleLogout} className={styles.button}>Log Out</button>
+          <button onClick={handleLogout} className={styles['navigation__button']}>Log Out</button>
         ) : (
-          <Link to="/login" className={styles.button}>Sign In</Link>
+          <Link to="/login" className={styles['navigation__button']}>Sign In</Link>
         )}
       </div>
     </nav>

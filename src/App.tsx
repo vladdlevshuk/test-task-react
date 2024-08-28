@@ -5,19 +5,20 @@ import { Home } from './pages/Home/Home';
 import { Login } from './pages/Login/Login';
 import { Navigation } from './components/Navigation/Navigation';
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
+import { BrokenComponent } from './components/BrokenComponent';
 import styles from './App.module.scss';
 
 export const App: React.FC = () => {
-  const location = useLocation();
-  const key = location.pathname;
+  const { pathname } = useLocation();
 
   return (
     <div className={styles.container}>
       <Navigation />
-      <ErrorBoundary key={key}>
+      <ErrorBoundary key={pathname}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/test-error" element={<BrokenComponent />} />
         </Routes>
       </ErrorBoundary>
     </div>
