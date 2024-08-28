@@ -4,7 +4,6 @@ import { setUser } from '../../store/userSlice';
 import { useFetchUserQuery } from '../../api/userApiSlice';
 import { useNavigate } from 'react-router-dom';
 import styles from './Login.module.scss';
-import { extractErrorMessage } from '../../utils/error';
 import { RootState } from '../../types';
 
 export const Login: React.FC = () => {
@@ -30,7 +29,7 @@ export const Login: React.FC = () => {
       dispatch(setUser(data[0]));
       navigate('/');
     } else if (error) {
-      setErrorMessage(extractErrorMessage(error));
+      setErrorMessage('An error occurred while fetching user data.'); // Общая ошибка
     } else {
       setErrorMessage('User not found');
     }
