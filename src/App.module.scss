@@ -16,3 +16,14 @@ body {
   background-color: #f8f9fa;
   color: #343a40;
 }
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &-main {
+    flex-grow: 1;
+    overflow: auto;
+  }
+}
